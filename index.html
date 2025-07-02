@@ -2,35 +2,36 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tu Propiedad Ideal | Corredora Demo</title>
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corredora Demo - Tu Propiedad Ideal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box }
-    body {
-      font-family: 'Work Sans', sans-serif;
-      background: #f0f2f5;
-      color: #333;
-      line-height: 1.6;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Work Sans', sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; }
     header {
       background: linear-gradient(135deg, #0066cc, #004a99);
       color: white;
       padding: 4rem 2rem;
       text-align: center;
     }
-    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1.2rem; }
-    main {
-      max-width: 900px;
-      margin: -3rem auto 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.3rem; max-width: 700px; margin: 0 auto; }
+    nav {
+      background: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .intro { margin-bottom: 2rem; }
-    .intro h2 { font-size: 1.8rem; color: #004a99; margin-bottom: 1rem; }
+    nav a {
+      color: #004a99;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 600;
+    }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 3rem; }
     .cta-button {
       display: inline-block;
       background: #0066cc;
@@ -41,49 +42,118 @@
       border: none;
       border-radius: 50px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
       text-decoration: none;
       transition: background 0.3s;
     }
     .cta-button:hover { background: #004a99; }
-    footer {
-      text-align: center;
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .property-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .property-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .property-card .content {
+      padding: 1rem;
+    }
+    .property-card h4 {
+      margin-bottom: 0.5rem;
+      color: #004a99;
+    }
+    .testimonial {
+      background: #ffffff;
       padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    footer {
+      background: #f8f8f8;
+      padding: 2rem;
+      text-align: center;
       font-size: 0.9rem;
       color: #777;
-    }
-    @media (max-width: 600px) {
-      header { padding: 3rem 1rem; }
-      header h1 { font-size: 2rem; }
-      main { margin: -2rem 1rem 2rem; padding: 1rem; }
-      .cta-button { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div><strong>Corredora Demo</strong></div>
+    <div>
+      <a href="#propiedades">Propiedades</a>
+      <a href="#formulario">Formulario</a>
+      <a href="#testimonios">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
 
   <header>
-    <h1>Corredora Demo de Alto Nivel</h1>
-    <p>La mejor experiencia inmobiliaria, sin complicaciones</p>
+    <h1>Encuentra tu Propiedad Ideal</h1>
+    <p>Te ayudamos a descubrir tu próximo hogar o inversión con atención personalizada, rápida y automatizada.</p>
   </header>
 
-  <main>
-    <section class="intro">
-      <h2>Encuentra tu próximo hogar</h2>
-      <p>Déjanos tus datos y tus preferencias, y en minutos te enviaremos una selección personalizada de propiedades con fotos, ubicación y toda la información que necesitas.</p>
+  <main class="container">
+
+    <section id="propiedades">
+      <h2>Propiedades Destacadas</h2>
+      <div class="property-grid">
+        <div class="property-card">
+          <img src="https://via.placeholder.com/400x200" alt="Propiedad 1">
+          <div class="content">
+            <h4>Casa en La Florida</h4>
+            <p>3 dormitorios · 2 baños · 120 m²</p>
+          </div>
+        </div>
+        <div class="property-card">
+          <img src="https://via.placeholder.com/400x200" alt="Propiedad 2">
+          <div class="content">
+            <h4>Depto en Ñuñoa</h4>
+            <p>2 dormitorios · 1 baño · 65 m²</p>
+          </div>
+        </div>
+        <div class="property-card">
+          <img src="https://via.placeholder.com/400x200" alt="Propiedad 3">
+          <div class="content">
+            <h4>Parcela en Pirque</h4>
+            <p>5.000 m² terreno · Vista cordillera</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="form">
+    <section id="formulario">
+      <h2>Solicita tu Listado Personalizado</h2>
+      <p>Completa el formulario para recibir propiedades seleccionadas según tus preferencias.</p>
       <a href="https://publicsmartview.mba.eu.masterbase.com/v1/682be41946cca4e4928dfcec" target="_blank" class="cta-button">
-        Completar Formulario
+        Ir al Formulario
       </a>
     </section>
+
+    <section id="testimonios">
+      <h2>¿Qué dicen nuestros clientes?</h2>
+      <div class="testimonial">
+        <p>“Gracias a Corredora Demo encontré mi departamento ideal en menos de una semana. La experiencia fue rápida, clara y muy profesional.”</p>
+        <p><strong>- María Fernanda, Ñuñoa</strong></p>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <p>¿Tienes dudas? Escríbenos a <a href="mailto:contacto@corredorademo.cl">contacto@corredorademo.cl</a> o llama al +56 9 1234 5678</p>
+    </section>
+
   </main>
 
   <footer>
-    &copy; 2025 Corredora Demo • Automatización inmobiliaria impulsada por MasterBase®  
-    <br>
-    Santiago, Chile
+    &copy; 2025 Corredora Demo. Automatización y tecnología MasterBase®.
   </footer>
 
 </body>
