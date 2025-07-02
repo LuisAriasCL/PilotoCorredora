@@ -2,20 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Corredora Demo - Tu Propiedad Ideal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Work Sans', sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; }
-    header {
-      background: linear-gradient(135deg, #0066cc, #004a99);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1.3rem; max-width: 700px; margin: 0 auto; }
     nav {
       background: #ffffff;
       padding: 1rem 2rem;
@@ -23,29 +15,59 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
     nav a {
       color: #004a99;
       text-decoration: none;
       margin-left: 1rem;
       font-weight: 600;
+      transition: color 0.3s;
     }
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
-    section { margin-bottom: 3rem; }
-    .cta-button {
-      display: inline-block;
-      background: #0066cc;
+    nav a:hover { color: #0066cc; }
+    nav .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #0066cc;
+      letter-spacing: 2px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1rem;
+    }
+    header {
+      background: linear-gradient(135deg, #0066cc, #004a99);
       color: white;
-      padding: 14px 30px;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 50px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.3s;
+      padding: 6rem 2rem 4rem 2rem;
+      text-align: center;
+      position: relative;
     }
-    .cta-button:hover { background: #004a99; }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      color: #004a99;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      font-size: 2rem;
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 0.3rem;
+    }
     .property-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -56,6 +78,11 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .property-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     .property-card img {
       width: 100%;
@@ -68,25 +95,135 @@
     .property-card h4 {
       margin-bottom: 0.5rem;
       color: #004a99;
+      font-weight: 700;
+    }
+    .property-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #0066cc;
+      color: white;
+      padding: 14px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin-top: 1rem;
+    }
+    .cta-button:hover {
+      background: #004a99;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
     .testimonial {
-      background: #ffffff;
+      background: white;
       padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-style: italic;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '“';
+      font-size: 3rem;
+      color: #0066cc;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-weight: 700;
+    }
+    .testimonial p {
+      margin-bottom: 1rem;
+    }
+    .testimonial strong {
+      font-weight: 700;
+      color: #004a99;
+      font-style: normal;
+    }
+    #map {
+      width: 100%;
+      height: 350px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #contacto p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    #contacto a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    #contacto a:hover {
+      text-decoration: underline;
     }
     footer {
       background: #f8f8f8;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
       font-size: 0.9rem;
       color: #777;
+    }
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebe5d;
+    }
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        padding: 4rem 1rem 3rem 1rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .container {
+        margin: 1rem auto 3rem auto;
+        padding: 0 1rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav div:last-child {
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div><strong>Corredora Demo</strong></div>
+    <div class="logo">CORREDORA DEMO</div>
     <div>
       <a href="#propiedades">Propiedades</a>
       <a href="#formulario">Formulario</a>
@@ -101,26 +238,25 @@
   </header>
 
   <main class="container">
-
     <section id="propiedades">
       <h2>Propiedades Destacadas</h2>
       <div class="property-grid">
         <div class="property-card">
-          <img src="https://via.placeholder.com/400x200" alt="Propiedad 1">
+          <img src="https://images.unsplash.com/photo-1600585154514-6f0ec99fbc95?auto=format&fit=crop&w=400&q=80" alt="Casa en La Florida" />
           <div class="content">
             <h4>Casa en La Florida</h4>
             <p>3 dormitorios · 2 baños · 120 m²</p>
           </div>
         </div>
         <div class="property-card">
-          <img src="https://via.placeholder.com/400x200" alt="Propiedad 2">
+          <img src="https://images.unsplash.com/photo-1560448075-03f12a3166f8?auto=format&fit=crop&w=400&q=80" alt="Depto en Ñuñoa" />
           <div class="content">
             <h4>Depto en Ñuñoa</h4>
             <p>2 dormitorios · 1 baño · 65 m²</p>
           </div>
         </div>
         <div class="property-card">
-          <img src="https://via.placeholder.com/400x200" alt="Propiedad 3">
+          <img src="https://images.unsplash.com/photo-1580582932816-02f06a073f60?auto=format&fit=crop&w=400&q=80" alt="Parcela en Pirque" />
           <div class="content">
             <h4>Parcela en Pirque</h4>
             <p>5.000 m² terreno · Vista cordillera</p>
@@ -139,22 +275,59 @@
 
     <section id="testimonios">
       <h2>¿Qué dicen nuestros clientes?</h2>
-      <div class="testimonial">
-        <p>“Gracias a Corredora Demo encontré mi departamento ideal en menos de una semana. La experiencia fue rápida, clara y muy profesional.”</p>
-        <p><strong>- María Fernanda, Ñuñoa</strong></p>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>“Gracias a Corredora Demo encontré mi departamento ideal en menos de una semana. La experiencia fue rápida, clara y muy profesional.”</p>
+          <p><strong>- María Fernanda, Ñuñoa</strong></p>
+        </div>
+        <div class="testimonial">
+          <p>“El equipo fue muy atento y me ayudó a encontrar la casa perfecta para mi familia. Muy recomendados.”</p>
+          <p><strong>- Carlos Muñoz, Santiago Centro</strong></p>
+        </div>
+        <div class="testimonial">
+          <p>“La automatización del proceso hizo que todo fuera sencillo y rápido. Sin duda volveré a usar sus servicios.”</p>
+          <p><strong>- Ana Pérez, Providencia</strong></p>
+        </div>
       </div>
     </section>
 
     <section id="contacto">
       <h2>Contáctanos</h2>
       <p>¿Tienes dudas? Escríbenos a <a href="mailto:contacto@corredorademo.cl">contacto@corredorademo.cl</a> o llama al +56 9 1234 5678</p>
+      <div id="map"></div>
     </section>
-
   </main>
 
   <footer>
     &copy; 2025 Corredora Demo. Automatización y tecnología MasterBase®.
+    <br />
+    Síguenos en 
+    <a href="https://facebook.com" target="_blank" rel="noopener" style="color:#3b5998;">Facebook</a> · 
+    <a href="https://instagram.com" target="_blank" rel="noopener" style="color:#E4405F;">Instagram</a> · 
+    <a href="https://linkedin.com" target="_blank" rel="noopener" style="color:#0A66C2;">LinkedIn</a>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/56912345678" target="_blank" class="whatsapp-float" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20.52 3.48A11.936 11.936 0 0012 0C5.372 0 0 5.372 0 12c0 2.108.552 4.08 1.512 5.832L0 24l6.36-1.644A11.964 11.964 0 0012 24c6.628 0 12-5.372 12-12 0-3.212-1.25-6.214-3.48-8.52zM12 21.75a9.713 9.713 0 01-4.944-1.392l-.354-.216-3.78.98.96-3.684-.234-.36a9.744 9.744 0 01-1.476-5.49c0-5.364 4.356-9.72 9.72-9.72 2.598 0 5.034 1.012 6.876 2.856a9.555 9.555 0 012.844 6.864c0 5.364-4.356 9.72-9.72 9.72zm5.034-6.87c-.294-.147-1.734-.855-2.004-.948-.27-.099-.468-.147-.666.15-.198.294-.762.948-.936 1.14-.174.192-.348.216-.642.072-.294-.147-1.24-.456-2.364-1.458-.874-.78-1.464-1.74-1.638-2.034-.174-.294-.018-.45.129-.597.132-.132.294-.348.441-.522.147-.174.198-.294.297-.49.099-.198.05-.372-.025-.52-.075-.147-.666-1.602-.912-2.196-.24-.576-.486-.498-.666-.51-.174-.012-.372-.012-.57-.012-.198 0-.52.074-.792.372-.27.294-1.032 1.008-1.032 2.46 0 1.452 1.056 2.856 1.204 3.054.147.198 2.076 3.168 5.028 4.44.702.303 1.248.483 1.674.618.702.21 1.344.18 1.854.108.57-.084 1.734-.708 1.98-1.392.246-.684.246-1.272.174-1.392-.072-.12-.27-.198-.564-.345z"/>
+    </svg>
+  </a>
+
+  <script>
+    function initMap() {
+      var oficina = { lat: -33.45694, lng: -70.64827 }; // Santiago centro
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: oficina
+      });
+      var marker = new google.maps.Marker({
+        position: oficina,
+        map: map,
+        title: 'Oficina Corredora Demo'
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
 </body>
 </html>
